@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 25% 97%;
+    --foreground: 20 10% 12%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 20 10% 12%;
+
+    --popover: 30 20% 99%;
+    --popover-foreground: 20 10% 12%;
+
+    --primary: 20 10% 12%;
+    --primary-foreground: 30 25% 97%;
+
+    --secondary: 25 15% 92%;
+    --secondary-foreground: 20 10% 12%;
+
+    --muted: 25 12% 93%;
+    --muted-foreground: 20 8% 48%;
+
+    --accent: 15 60% 72%;
+    --accent-foreground: 20 10% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 30 25% 97%;
+
+    --border: 25 15% 88%;
+    --input: 25 15% 88%;
+    --ring: 15 60% 72%;
+
+    --radius: 0.25rem;
+
+    --rose-gold: 15 60% 72%;
+    --rose-gold-light: 15 50% 90%;
+    --cream: 35 30% 95%;
+    --warm-black: 20 10% 12%;
+    --warm-gray: 20 8% 48%;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 20 10% 8%;
+    --foreground: 30 20% 92%;
+    --card: 20 10% 10%;
+    --card-foreground: 30 20% 92%;
+    --popover: 20 10% 10%;
+    --popover-foreground: 30 20% 92%;
+    --primary: 30 20% 92%;
+    --primary-foreground: 20 10% 8%;
+    --secondary: 20 8% 18%;
+    --secondary-foreground: 30 20% 92%;
+    --muted: 20 8% 18%;
+    --muted-foreground: 20 8% 60%;
+    --accent: 15 60% 72%;
+    --accent-foreground: 20 10% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 30 20% 92%;
+    --border: 20 8% 20%;
+    --input: 20 8% 20%;
+    --ring: 15 60% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: var(--font-display);
+  }
+
+  .text-body {
+    font-family: var(--font-body);
+  }
+}
