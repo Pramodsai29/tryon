@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Product } from "@/lib/data";
+import { Product } from "../lib/data";
 import Navbar from "@/components/Navbar";
 import { Camera, CameraOff, Trash2, Scan, EyeOff, Eye } from "lucide-react";
 import { toast } from "sonner";
@@ -323,7 +323,17 @@ const TrialRoom = () => {
                     }`}
                     onClick={() => setSelectedItem(item)}
                   >
-                    <img src={item.image} alt={item.name} className="h-16 w-12 object-cover" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-16 w-12 object-cover"
+                      onError={(e) => {
+                        const t = e.currentTarget;
+                        const seed = parseInt(item.id, 10) || item.id.charCodeAt(0);
+                        t.src = `https://picsum.photos/seed/${seed}/400/500`;
+                        t.onerror = null;
+                      }}
+                    />
                     <div className="flex-1">
                       <p className="text-sm font-medium">{item.name}</p>
                       <p className="text-xs text-muted-foreground">₹{item.price.toLocaleString("en-IN")}</p>

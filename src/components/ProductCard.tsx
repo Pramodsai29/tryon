@@ -1,4 +1,4 @@
-import { Product } from "@/lib/data";
+import { Product } from "../lib/data";
 import { Camera, Plus, Star } from "lucide-react";
 import { useState } from "react";
 
@@ -38,6 +38,13 @@ const ProductCard = ({ product, onAddToTrial, delay = 0, highlight = false }: Pr
           alt={product.name}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
+          onError={(e) => {
+            const t = e.currentTarget;
+            // Fallback: picsum seeded by product id so each card gets a unique stable image
+            const seed = parseInt(product.id, 10) || product.id.charCodeAt(0);
+            t.src = `https://picsum.photos/seed/${seed}/400/500`;
+            t.onerror = null; // prevent infinite loop
+          }}
         />
 
         {/* Wishlist button */}
